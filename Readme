@@ -1,0 +1,34 @@
+# Contributors:
+Kenneth Chen + David Luo -> getmem.c, mem_utils.c, freemem.c, Makefile, mem_impl.h, mem.h
+
+For this particular project, we worked together on all methods. Essentially like pair programming. We caught bugs together, squashed bugs together and inspired each other to write the best code, in our ability. 
+
+# Heap Memory Management
+
+This project implements a basic heap memory management system. The purpose of this project is to provide an understanding of how dynamic memory allocation and deallocation work at a lower level.
+
+## Memory Management
+
+This memory management system enables an user to request and free memory blocks. The system maintains a free list of available memory blocks and attempts to satisfy allocation requests by reusing blocks from the free list before requesting more memory from the system.
+
+The memory management functions include:
+
+- `getmem`: Allocates a block of memory of at least the requested size. If a large enough block is available on the free list, it is removed from the free list and returned. If no such block exists, a new block of the appropriate size is allocated.
+
+- `freemem`: Returns a block of memory to the free list. The returned block becomes available to satisfy future allocation requests.
+
+- `get_mem_stats`: Returns statistics about the current state of the memory manager, including the total amount of memory managed, the total amount of memory on the free list, and the total number of blocks on the free list.
+
+- `print_heap`: Prints a formatted listing of the blocks on the free list, primarily for debugging purposes.
+
+The system uses a linked list to maintain the free list, with each block containing a header with the size of the block and a pointer to the next block.
+
+## Testing
+
+A comprehensive set of tests has been performed to ensure the correct functioning of the memory management system. The tests validate each of the memory management functions and check that they behave as expected when given typical inputs, edge-case inputs, and invalid inputs.
+
+## List of Resources
+- OpenAI's GPT-4 Chatbot:  Members of our team used ChatGPT4 to primarily debug our code. This was incredibly helpful in finding bugs, such as issues as identified by Valgrind and the linting tool as offered by cpplint.py
+- The C Programming Language, 2nd Edition, by Brian W. Kernighan and Dennis M. Ritchie: Used as a reference for the C language and standard library functions.
+Stack Overflow: Used to find solutions to specific problems and for general programming advice.
+Valgrind: Used for memory leak detection and debugging.
